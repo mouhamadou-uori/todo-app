@@ -1,0 +1,20 @@
+{
+  "name": "todo",
+  "displayName": "Todo",
+  "version": "1.0.0",
+  "description": "Liste de tâches mobile avec gestes swipe (Cordova + jQuery Mobile).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Pas de tests automatisés pour l'instant.\" && exit 0"
+  },
+  "author": "Mouhamadou Wally Ndour",
+  "license": "MIT",
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "devDependencies": {
+    "cordova-android": "^15.0.0"
+  }
+}

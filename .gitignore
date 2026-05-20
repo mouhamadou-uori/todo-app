@@ -1,0 +1,18 @@
+# Cordova build output
+platforms/
+plugins/
+*.apk
+*.aab
+
+# Node
+node_modules/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Claude Code local settings (per-machine)
+.claude/

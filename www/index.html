@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="theme-color" content="#0e0f12">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <title>todo</title>
+    <link rel="stylesheet" href="lib/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div data-role="page" id="home">
+
+    <div data-role="header" data-position="inline" data-theme="a" class="t-header">
+        <h1>~/todo</h1>
+    </div>
+
+    <div role="main" class="ui-content t-main">
+
+        <form id="add-form" data-ajax="false" autocomplete="off" novalidate>
+            <div class="t-input-row">
+                <span class="t-prompt" aria-hidden="true">&gt;</span>
+                <input type="text" id="task-input" data-role="none" placeholder="qu'est-ce qu'il y a à faire" maxlength="140" autocapitalize="sentences">
+            </div>
+            <div class="t-button-row">
+                <button type="submit" id="btn-add" class="t-btn" data-role="none">ajouter</button>
+                <button type="button" id="btn-reset" class="t-btn t-btn-ghost" data-role="none">réinitialiser</button>
+            </div>
+        </form>
+
+        <p id="empty-hint" class="t-empty">rien pour l'instant.</p>
+
+        <section id="section-encours" class="t-section" hidden>
+            <h2 class="t-section-title">— en cours</h2>
+            <ul id="list-encours" class="t-list" data-role="none"></ul>
+        </section>
+
+        <section id="section-terminees" class="t-section" hidden>
+            <h2 class="t-section-title">— terminées</h2>
+            <ul id="list-terminees" class="t-list" data-role="none"></ul>
+        </section>
+
+        <p class="t-hint">
+            <span>← supprimer</span><span>→ basculer</span>
+        </p>
+
+    </div>
+
+</div>
+
+<!-- custom reset confirmation modal -->
+<div id="t-modal" class="t-modal" hidden aria-hidden="true" role="dialog" aria-labelledby="t-modal-title">
+    <div class="t-modal-card">
+        <p class="t-modal-title" id="t-modal-title">tout effacer ?</p>
+        <p class="t-modal-sub">les tâches et les rubriques disparaîtront.</p>
+        <div class="t-modal-actions">
+            <button type="button" id="t-modal-cancel" class="t-btn t-btn-ghost" data-role="none">annuler</button>
+            <button type="button" id="t-modal-ok" class="t-btn t-btn-danger" data-role="none">effacer</button>
+        </div>
+    </div>
+</div>
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<script src="lib/jquery.mobile-1.4.5.min.js"></script>
+<script src="cordova.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
