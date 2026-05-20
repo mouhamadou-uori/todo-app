@@ -5,7 +5,6 @@
 
     var state = { enCours: [], terminees: [] };
 
-    /* ---------- persistence ---------- */
     function load() {
         try {
             var raw = localStorage.getItem(STORAGE_KEY);
@@ -22,15 +21,13 @@
     function save() {
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        } catch (e) { /* quota / private mode — ignore */ }
+        } catch (e) { }
     }
 
-    /* ---------- ids ---------- */
     function newId() {
         return 't_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 7);
     }
 
-    /* ---------- mutations ---------- */
     function addTask(text) {
         text = (text || '').trim();
         if (!text) return false;
@@ -66,7 +63,6 @@
         save();
     }
 
-    /* ---------- DOM helpers ---------- */
     function escapeHtml(str) {
         return String(str)
             .replace(/&/g, '&amp;')
@@ -105,7 +101,6 @@
         $('#empty-hint').prop('hidden', hasEnCours || hasTerm);
     }
 
-    /* ---------- gesture handlers ---------- */
     function animateAndExecute($li, direction, action) {
         var cls = direction === 'left' ? 'swiping-left' : 'swiping-right';
         $li.addClass(cls);
@@ -115,7 +110,6 @@
         }, 140);
     }
 
-    /* ---------- modal ---------- */
     function openModal() {
         $('#t-modal').prop('hidden', false).attr('aria-hidden', 'false');
     }
@@ -145,7 +139,6 @@
             render();
             closeModal();
         });
-        // click on backdrop closes (but not on card)
         $('#t-modal').on('click', function (ev) {
             if (ev.target === this) closeModal();
         });
@@ -154,9 +147,6 @@
             if (ev.key === 'Escape' && !$('#t-modal').prop('hidden')) closeModal();
         });
 
-        // Gestes natifs jQuery Mobile (consigne du projet) :
-        // swipeleft / swiperight sont déclenchés par jQM via $.event.special.swipe,
-        // qui écoute touchstart/touchmove/touchend (et vmousedown/move/up pour le mouse fallback).
         $(document).on('swipeleft', 'li.task-item', function (ev) {
             ev.stopPropagation();
             var $li = $(this);
@@ -183,7 +173,6 @@
         }
     }
 
-    /* ---------- boot ---------- */
     function boot() {
         tuneSwipe();
         load();

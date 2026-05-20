@@ -13,7 +13,6 @@
     --danger:    #b95a5a;
 }
 
-/* ----- reset jQM colours / paddings we don't want ----- */
 html, body { background: var(--bg); margin: 0; padding: 0; }
 body, .ui-mobile, .ui-mobile [data-role=page], .ui-page {
     background: var(--bg) !important;
@@ -26,7 +25,6 @@ body, .ui-mobile, .ui-mobile [data-role=page], .ui-page {
     user-select: none;
 }
 
-/* ----- header ----- */
 .ui-mobile .t-header.ui-header {
     background: var(--bg) !important;
     border: 0 !important;
@@ -47,14 +45,12 @@ body, .ui-mobile, .ui-mobile [data-role=page], .ui-page {
     width: auto;
 }
 
-/* ----- main content ----- */
 .t-main.ui-content {
     padding: 18px 18px 28px !important;
     background: var(--bg) !important;
     border: 0 !important;
 }
 
-/* ----- input ----- */
 #add-form { margin: 0 0 14px; }
 .t-input-row {
     display: flex;
@@ -87,7 +83,6 @@ input#task-input {
 input#task-input::placeholder { color: var(--dim); }
 input#task-input::-webkit-input-placeholder { color: var(--dim); }
 
-/* ----- buttons ----- */
 .t-button-row {
     display: flex;
     gap: 8px;
@@ -116,14 +111,12 @@ button.t-btn-danger { color: var(--danger) !important; border-color: var(--dange
 button.t-btn-danger:active,
 button.t-btn-danger:focus { background: rgba(185, 90, 90, 0.10) !important; }
 
-/* ----- empty state ----- */
 .t-empty {
     color: var(--dim);
     margin: 22px 0;
     font-style: italic;
 }
 
-/* ----- sections ----- */
 .t-section { margin-top: 22px; }
 .t-section-title {
     font-size: 13px;
@@ -133,7 +126,6 @@ button.t-btn-danger:focus { background: rgba(185, 90, 90, 0.10) !important; }
     letter-spacing: .02em;
 }
 
-/* ----- raw list (no jQM enhancement) ----- */
 ul.t-list {
     margin: 0;
     padding: 0;
@@ -146,7 +138,7 @@ ul.t-list > li.task-item {
     color: var(--fg);
     background: transparent;
     cursor: pointer;
-    touch-action: pan-y; /* allow vertical scroll, capture horizontal for swipe */
+    touch-action: pan-y;
     -webkit-user-select: text;
     user-select: text;
 }
@@ -173,11 +165,9 @@ ul.t-list > li.task-item.done::before {
     color: var(--done);
 }
 
-/* swipe transient feedback */
 ul.t-list > li.task-item.swiping-left  { background: rgba(185, 90, 90, 0.14); transform: translateX(-14px); transition: transform .12s; }
 ul.t-list > li.task-item.swiping-right { background: rgba(224, 164, 88, 0.12); transform: translateX(14px);  transition: transform .12s; }
 
-/* ----- hint footer ----- */
 .t-hint {
     display: flex;
     justify-content: space-between;
@@ -187,7 +177,6 @@ ul.t-list > li.task-item.swiping-right { background: rgba(224, 164, 88, 0.12); t
     letter-spacing: .02em;
 }
 
-/* ----- custom modal ----- */
 .t-modal {
     position: fixed;
     inset: 0;
@@ -223,7 +212,6 @@ ul.t-list > li.task-item.swiping-right { background: rgba(224, 164, 88, 0.12); t
     justify-content: flex-end;
 }
 
-/* ----- kill jQM focus rings, pop-ups, etc. ----- */
 .ui-btn:focus,
 .ui-focus,
 .ui-btn.ui-focus { box-shadow: none !important; }
